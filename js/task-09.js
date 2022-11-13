@@ -11,6 +11,11 @@ function getRandomHexColor() {
 }
 
 function onBndColorRandomize() {
-	spanRef.textContent = getRandomHexColor();
+	// if we want HEX color to be displayed
+	// spanRef.textContent = String(getRandomHexColor());
+	// bodyRef.style.backgroundColor = spanRef.textContent;
+
+	// but RGB will be nice
 	bodyRef.style.backgroundColor = getRandomHexColor();
+	spanRef.textContent = bodyRef.style.backgroundColor;
 }

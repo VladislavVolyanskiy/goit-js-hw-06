@@ -3,6 +3,7 @@ const refs = {
 	btnCreate: document.querySelector('[data-create]'),
 	btnDestroy: document.querySelector('[data-destroy]'),
 	wrapForBoxes: document.querySelector('#boxes'),
+	boxSize: 20,
 };
 
 refs.btnCreate.addEventListener('click', createBoxes);
@@ -16,8 +17,9 @@ function createBoxes(amount) {
 	for (let i = 0; i < amount; i++) {
 		const box = document.createElement('div');
 
-		box.style.width = `${20 + i * 10}px`;
-		box.style.height = `${20 + i * 10}px`;
+		refs.boxSize += 10;
+		box.style.width = `${refs.boxSize}px`;
+		box.style.height = `${refs.boxSize}px`;
 		box.style.backgroundColor = getRandomHexColor();
 
 		boxesArr.push(box);
@@ -29,6 +31,7 @@ function createBoxes(amount) {
 function destroyBoxes() {
 	refs.wrapForBoxes.innerHTML = '';
 	refs.input.value = '';
+	refs.boxSize = 20;
 }
 
 function getRandomHexColor() {
